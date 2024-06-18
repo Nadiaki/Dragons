@@ -1,10 +1,8 @@
 import express from 'express'
+const cors = require('cors')
+import dragonRouter from './routes/dragon.route'
 const app = express()
 app.use(express.json())
-
-// Add a simple route
-app.get('/', (req, res) => {
-  res.send('Hello, world!')
-})
-
+app.use(cors());
+app.use('/dragons', dragonRouter)
 export default app
